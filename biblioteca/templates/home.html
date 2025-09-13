@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Livro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #ffe282;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #0077cc;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Pesquisar livro:</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Buscar</button>
+        </form>
+
+        {% if resultados %}
+    <h2>Resultados da Pesquisa:</h2>
+    <ul>
+        {% for livro in resultados %}
+            <li style="margin-bottom: 20px;">
+                <strong>Título:</strong> {{ livro.titulo }}<br>
+                <strong>Autor:</strong> {{ livro.autor }}<br>
+                <strong>Data:</strong> {{ livro.data }}<br>
+                <strong>Descrição:</strong> {{ livro.descricao }}<br>
+                <form method="get" action="{% url 'livros:confirmar' %}">
+                    <input type="hidden" name="titulo" value="{{ livro.titulo }}">
+                    <input type="hidden" name="autor" value="{{ livro.autor }}">
+                    <input type="hidden" name="data" value="{{ livro.data }}">
+                    <input type="hidden" name="descricao" value="{{ livro.descricao }}">
+                    <button type="submit">Adicionar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
+    </div>
+    <a href="{% url 'livros:list' %}">
+        <button type="button">Ver Lista de Livros</button>
+    </a>
+
+</body>
+</html>

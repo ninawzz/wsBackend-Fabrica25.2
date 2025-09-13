@@ -1,0 +1,22 @@
+# Arquivos Python compilados
+__pycache__/
+*.py[cod]
+
+# Ambiente virtual
+venv/
+
+# Banco de dados local
+*.sqlite3
+
+# Arquivos de configuração sensíveis
+.env
+
+# Cache do Django
+*.log
+*.pot
+*.pyc
+*.pyo
+
+# Diretórios de IDEs
+.vscode/
+.idea/

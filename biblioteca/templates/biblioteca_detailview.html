@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ livro.titulo }}</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body class="container mt-4">
+
+    <h1>{{ livro.titulo }}</h1>
+
+    <p><strong>Autor:</strong> {{ livro.autor }}</p>
+    <p><strong>Data de publicação:</strong> {{ livro.data }}</p>
+    <p><strong>Descrição:</strong> {{ livro.descricao }}</p>
+    <p><strong>status:</strong> {{ livro.categoria }}</p>
+
+    <a href="{% url 'biblioteca:list' %}" class="btn btn-secondary">Voltar</a>
+    <a href="{% url 'biblioteca:delete' livro.pk %}" class="btn btn-danger">Excluir</a>
+
+</body>
+</html>

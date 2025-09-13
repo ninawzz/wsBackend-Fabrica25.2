@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Categoria</title>
+</head>
+<body>
+    <h1>Adicionar nova categoria</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="nome">Nome da categoria:</label>
+        <input type="text" id="nome" name="nome" required>
+        <button type="submit">Salvar</button>
+    </form>
+
+    <br>
+    <a href="{% url 'livros:pesquisar' %}">Voltar para adicionar livro</a>
+</body>
+</html>

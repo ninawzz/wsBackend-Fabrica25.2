@@ -10,7 +10,7 @@
         {% for livro in categoria.livros_set.all %}
             <li class="categoria-livro-item">
                 <span class="categoria-livro-titulo">{{ livro.titulo }}</span> — 
-                <span class="categoria-livro-autor">{{ livro.autor }}</span>
+                <span class="categoria-livro-autor">{{ livro.autor }}</span></a>
             </li>
         {% empty %}
             <li class="categoria-vazio">Nenhum livro cadastrado nesta categoria.</li>

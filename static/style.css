@@ -732,3 +732,14 @@ form button:hover {
     padding: 10px 18px;
     border-radius: 8px;
 }
+
+.categoria-container,
+.delete-container,
+.detalhes-container,
+.editar-categoria-container,
+.categoria-form-container,
+.categoria-lista-container,
+.categoria-detalhe-container {
+    margin-top: -60px; 
+}
+

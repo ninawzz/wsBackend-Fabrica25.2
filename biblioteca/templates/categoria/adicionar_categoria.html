@@ -5,6 +5,11 @@
 <div class="categoria-form-container">
     <h1 class="categoria-form-title">Adicionar nova categoria</h1>
 
+    <!-- Mensagem de erro -->
+    {% if erro %}
+        <p style="color: red; font-weight: bold;">{{ erro }}</p>
+    {% endif %}
+
     <form method="POST" class="categoria-form">
         {% csrf_token %}
         <div class="form-group">

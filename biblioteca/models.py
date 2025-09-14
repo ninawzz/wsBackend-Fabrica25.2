@@ -14,6 +14,6 @@ class Livros(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True, blank=True)
     
     def __str__(self):
-        return self.titulo, self.data, self.autor, self.descricao 
+        return self.titulo
     
     

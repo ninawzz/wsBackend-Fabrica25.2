@@ -1,5 +1,5 @@
 from django import forms
-from .models import Livros
+from .models import Livros, Categoria
 
 class bibliotecaForm(forms.ModelForm):
     class Meta:
@@ -13,4 +13,12 @@ class bibliotecaForm(forms.ModelForm):
         }
         labels = {
             'titulo': 'Nome do livro',
+        }
+
+class CategoriaForm(forms.ModelForm):
+    class Meta:
+        model = Categoria
+        fields = ['nome']
+        labels = {
+            'nome': 'Nome da categoria'
         }

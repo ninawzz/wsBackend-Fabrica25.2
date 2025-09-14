@@ -1,12 +1,14 @@
 from django.urls import reverse_lazy
 from django.shortcuts import render, redirect
 from django.views.generic import FormView, ListView, DetailView, DeleteView, UpdateView
+from django.db import IntegrityError
+from django.views import View
 import requests
 from .models import Livros, Categoria
 from .forms import bibliotecaForm, CategoriaForm
 
-# * Função para buscar os livros e exibir os resultados - Não salva no banco
-class bibliotecaFormView(FormView): # ✅
+
+class bibliotecaFormView(FormView): 
     template_name = 'livros/home.html'
     form_class = bibliotecaForm
     success_url = reverse_lazy("livros:listar_livros")
@@ -36,17 +38,11 @@ class bibliotecaFormView(FormView): # ✅
 
  # * SEÇÂO ADICIONAR LIVROS
  
-# * Função pra adicionar o livro no banco, Create, Read - list e detail, Delete
-class Adicionarlivro(FormView): # ✅
+class Adicionarlivro(FormView): 
     template_name = 'livros/confirmacao.html'
     form_class = bibliotecaForm
     success_url = reverse_lazy("livros:listar_livros")
     
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['categorias'] = Categoria.objects.all()  # passa todas as categorias para o template
-        return context
-
     def get_initial(self):
         return {
             'titulo': self.request.GET.get('titulo', ''),
@@ -77,23 +73,23 @@ class Adicionarlivro(FormView): # ✅
         )
         return super().form_valid(form)
     
-class bibliotecaListView(ListView): # ✅
+class bibliotecaListView(ListView): 
     model = Livros
     template_name = 'livros/biblioteca_listview.html'
     context_object_name = 'livros'
     
-class bibliotecaDetailView(DetailView): # ✅
+class bibliotecaDetailView(DetailView): 
     model = Livros
     template_name = 'livros/biblioteca_detailview.html'
     context_object_name = 'livro'
     
-class bibliotecaDeleteView(DeleteView): # ✅
+class bibliotecaDeleteView(DeleteView): 
     model = Livros
     template_name = 'livros/biblioteca_deleteview.html'
     context_object_name = 'livro'
     success_url = reverse_lazy("livros:listar_livros")
     
-class bibliotecaUpdateView(UpdateView): # ✅
+class bibliotecaUpdateView(UpdateView): 
     model = Livros
     fields = ['categoria']
     template_name = 'livros/biblioteca_updateview.html'
@@ -106,35 +102,49 @@ class bibliotecaUpdateView(UpdateView): # ✅
         return context
     
 # * SEÇÂO CATEGORIA
-    
-# * função pro usuário adicionar manualmente a categoria
-def adicionar_categoria(request): # ✅
-    if request.method == 'POST':
-        nome = request.POST.get('nome')
-        if nome:
-            Categoria.objects.create(nome=nome)
-        return redirect('livros:listar_categorias')  
-    return render(request, 'categoria/adicionar_categoria.html')
 
-# * CRUD CATEGORIA
-class categoriaListView(ListView): # * Read - list # ✅
+class AdicionarCategoriaView(View):
+    template_name = 'categoria/adicionar_categoria.html'
+
+    def get(self, request):
+        # Mostra o formulário vazio
+        return render(request, self.template_name)
+
+    def post(self, request):
+        # Pega o valor do input
+        nome = request.POST.get('nome', '').strip()
+
+        if not nome:
+            return render(request, self.template_name, {"erro": "O nome não pode estar vazio."})
+
+        try:
+            # Tenta salvar no banco
+            Categoria.objects.create(nome=nome)
+        except IntegrityError:
+            # Se já existir, mostra erro
+            return render(request, self.template_name, {"erro": f'A categoria "{nome}" já existe.'})
+
+        # Se der certo, redireciona
+        return redirect('livros:listar_categorias')
+    
+
+class categoriaListView(ListView): 
     model = Categoria
     template_name = 'categoria/categoria_listview.html'
     context_object_name = 'categorias'
     
-class categoriaDetailView(DetailView): # * Read - detail # ✅
+class categoriaDetailView(DetailView): 
     model = Categoria
     template_name = 'categoria/categoria_detailview.html'
     context_object_name = 'categoria'
-    success_url = reverse_lazy('livros:listar_categorias')
     
-class categoriaUpdateView(UpdateView): # !!!!!!!
+class categoriaUpdateView(UpdateView): 
     model = Categoria
     form_class = CategoriaForm
     template_name = 'categoria/categoria_updateview.html'
     success_url = reverse_lazy('livros:listar_categorias')
     
-class categoriaDeleteView(DeleteView): # ✅
+class categoriaDeleteView(DeleteView): 
     model = Categoria
     template_name = 'categoria/categoria_deleteview.html'
     context_object_name = 'categoria'

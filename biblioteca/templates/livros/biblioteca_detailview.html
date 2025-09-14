@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Ver livro{% endblock %}
+
+{% block content %}
+<div class="detalhes-container">
+    <h1 class="detalhes-titulo">{{ livro.titulo }}</h1>
+
+    <div class="detalhes-info">
+        <p><strong>Autor:</strong> {{ livro.autor }}</p>
+        <p><strong>Data de publicação:</strong> {{ livro.data }}</p>
+        <p><strong>Descrição:</strong> {{ livro.descricao }}</p>
+        <p><strong>Categoria atual:</strong> 
+            {% if livro.categoria %} {{ livro.categoria.nome }} {% else %} Sem categoria {% endif %}
+        </p>
+    </div>
+
+    <div class="detalhes-botoes">
+        <a href="{% url 'livros:listar_livros' %}" class="btn btn-voltar">Voltar</a>
+        <a href="{% url 'livros:deletar_livro' livro.pk %}" class="btn btn-excluir">Excluir</a>
+        <a href="{% url 'livros:alterar_categoria' livro.pk %}" class="btn btn-alterar">Alterar categoria</a>
+    </div>
+</div>
+{% endblock %}

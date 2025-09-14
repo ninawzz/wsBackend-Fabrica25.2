@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Buscar Livro{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Pesquisar livro:</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    {% if resultados %}
+        <ul class="list-group">
+            {% for livro in resultados %}
+                <li class="list-group-item mb-3">
+                    <p><strong>Título:</strong> {{ livro.titulo }}</p>
+                    <p><strong>Autor:</strong> {{ livro.autor }}</p>
+                    <p><strong>Data:</strong> {{ livro.data }}</p>
+                    <p><strong>Descrição:</strong> {{ livro.descricao }}</p>
+
+                    <form method="get" action="{% url 'livros:adicionar_livro' %}">
+                        <input type="hidden" name="titulo" value="{{ livro.titulo }}">
+                        <input type="hidden" name="autor" value="{{ livro.autor }}">
+                        <input type="hidden" name="data" value="{{ livro.data }}">
+                        <input type="hidden" name="descricao" value="{{ livro.descricao }}">
+                        <button type="submit" class="btn btn-success btn-sm">Adicionar</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}

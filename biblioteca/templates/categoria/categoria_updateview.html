@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Editar Categoria{% endblock %}
+
+{% block content %}
+<div class="editar-categoria-container">
+    <h1 class="editar-categoria-title">Editar Categoria</h1>
+
+    <form method="post" class="editar-categoria-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="editar-categoria-acoes">
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <a href="{% url 'livros:listar_categorias' %}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

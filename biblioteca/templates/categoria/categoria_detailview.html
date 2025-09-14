@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Livros da categoria{% endblock %}
+
+{% block content %}
+<div class="categoria-detalhe-container">
+    <h1 class="categoria-titulo">Categoria: {{ categoria.nome }}</h1>
+
+    <h2 class="categoria-subtitulo"> Livros nesta categoria:</h2>
+    <ul class="categoria-livros-lista">
+        {% for livro in categoria.livros_set.all %}
+            <li class="categoria-livro-item">
+                <span class="categoria-livro-titulo">{{ livro.titulo }}</span> — 
+                <span class="categoria-livro-autor">{{ livro.autor }}</span>
+            </li>
+        {% empty %}
+            <li class="categoria-vazio">Nenhum livro cadastrado nesta categoria.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'livros:listar_categorias' %}" class="btn btn-secondary categoria-voltar"> Voltar para lista</a>
+</div>
+{% endblock %}

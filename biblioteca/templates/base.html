@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Personal Library{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Epunda+Slab:ital,wght@0,300..900;1,300..900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="Logo da Biblioteca" class="logo-img">
+        </div>
+        
+        <nav class="menu">
+            <a href="{% url 'livros:pesquisar' %}" class="menu-btn">
+                <img src="{% static 'iconelista.png' %}" alt="Categorias" class="icon">
+                HOME
+            </a>
+            <a href="{% url 'livros:listar_livros' %}" class="menu-btn">
+                <img src="{% static 'iconebiblioteca.png' %}" alt="Livros" class="icon">
+                LIVROS
+            </a>
+            <a href="{% url 'livros:listar_categorias' %}" class="menu-btn">
+                <img src="{% static 'iconelista.png' %}" alt="Categorias" class="icon">
+                CATEGORIAS
+            </a>
+            
+        </nav>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

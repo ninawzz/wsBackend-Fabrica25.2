@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Meus Livros{% endblock %}
+
+{% block content %}
+<div class="lista-container">
+    <h1 class="page-title">  Meus livros</h1>
+
+    {% if livros %}
+        <ul class="livro-lista">
+            {% for livro in livros %}
+                <li class="livro-item">
+                    <span class="livro-titulo">{{ livro.titulo }}</span>
+                    <div class="acoes">
+                        <a href="{% url 'livros:detalhe_livro' livro.pk %}" class="btn btn-info">Ver</a>
+                        <a href="{% url 'livros:deletar_livro' livro.pk %}" class="btn btn-danger">Excluir</a>
+                        <a href="{% url 'livros:alterar_categoria' livro.pk %}" class="btn btn-warning">Alterar categoria</a>
+                    </div>
+                </li>
+            {% empty %}
+                <li class="livro-item vazio">Nenhum livro cadastrado ainda.</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="sem-livros">Nenhum livro cadastrado ainda.</p>
+    {% endif %}
+
+
+{% endblock %}

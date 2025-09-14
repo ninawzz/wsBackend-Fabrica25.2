@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Alterar Categoria{% endblock %}
+
+{% block content %}
+<div class="categoria-container">
+    <h1 class="categoria-title">Alterar categoria do livro</h1>
+    <h3 class="categoria-subtitle">{{ livro.titulo }}</h3>
+    <p class="categoria-atual">
+        <strong>Categoria atual:</strong>
+        {% if livro.categoria %} {{ livro.categoria.nome }} {% else %} Sem categoria {% endif %}
+    </p>
+
+    <form method="post" class="categoria-form">
+        {% csrf_token %}
+        <label for="categoria" class="categoria-label">Selecione a nova categoria:</label>
+        <select name="categoria" id="categoria" class="categoria-select">
+            {% for categoria in categorias %}
+                <option value="{{ categoria.id }}" {% if livro.categoria == categoria %}selected{% endif %}>
+                    {{ categoria.nome }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <div class="categoria-buttons">
+            <button type="submit" class="btn-salvar">Salvar</button>
+            <a href="{% url 'livros:listar_livros' %}" class="btn-cancelar">Cancelar</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

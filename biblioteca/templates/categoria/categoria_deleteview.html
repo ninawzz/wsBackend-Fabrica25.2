@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Deletar Categoria{% endblock %}
+
+{% block content %}
+<div class="delete-categoria-container">
+    <h1 class="delete-categoria-titulo">⚠️ Deletar Categoria</h1>
+    <p class="delete-categoria-texto">Tem certeza que deseja deletar a categoria <strong>"{{ object.nome }}"</strong>?</p>
+
+    <form method="post" action="{% url 'livros:deletar_categoria' object.id %}" class="delete-categoria-form">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Sim, deletar</button>
+        <a href="{% url 'livros:listar_categorias' %}" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>
+{% endblock %}

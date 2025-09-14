@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Adicionar Livro{% endblock %}
+
+{% block content %}
+    <h1>Confirme os dados do livro</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <p><strong>Título:</strong> {{ titulo }}</p>
+        <input type="hidden" name="titulo" value="{{ titulo }}">
+
+        <p><strong>Autor:</strong> {{ autor }}</p>
+        <input type="hidden" name="autor" value="{{ autor }}">
+
+        <p><strong>Data:</strong> {{ data }}</p>
+        <input type="hidden" name="data" value="{{ data }}">
+
+        <p><strong>Descrição:</strong> {{ descricao }}</p>
+        <input type="hidden" name="descricao" value="{{ descricao }}">
+
+        <label>Categoria:</label>
+        <select name="categoria" required>
+            {% for categoria in categorias %}
+                <option value="{{ categoria.id }}">{{ categoria.nome }}</option>
+            {% endfor %}
+        </select>
+
+        <a href="{% url 'livros:adicionar_categoria' %}">Adicionar nova categoria</a>
+        <button type="submit">Salvar</button>
+    </form>
+{% endblock %}

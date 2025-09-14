@@ -1,0 +1,734 @@
+/* Fundo */
+body {
+    background-color: #ffd9ec; /* rosa claro */
+    font-family: 'Press Start 2P', monospace; /* estilo pixelado */
+    margin: 0;
+    padding: 0;
+    font-size: 18px; 
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* logo esquerda, menu direita */
+    align-items: center;
+    padding: 9px 15px;
+    margin-top: -100px;
+    
+}
+.logo{
+    margin-top: -40px;
+}
+
+/* Menu */
+.menu {
+    display: flex;
+    gap: 30px;
+}
+
+.menu-btn {
+    margin-top: -100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f48fb1;
+    color: black;
+    text-decoration: none;
+    padding: 18px 36px;
+    border-radius: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.25);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.menu-btn:hover {
+    background: #ec407a;
+    transform: translateY(-3px);
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+}
+/* HOME */
+
+
+.container h1 {
+    color: #ec407a;
+    font-size: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+}
+
+form input, form select, form textarea {
+    padding: 10px;
+    border: 2px solid #f48fb1;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+form input:focus, form select:focus, form textarea:focus {
+    border-color: #ec407a;
+    box-shadow: 0 0 6px rgba(236, 64, 122, 0.5);
+}
+
+/* Botões */
+.btn {
+    background: #f48fb1;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background: #ec407a;
+    transform: translateY(-2px);
+}
+
+.btn-success {
+    background: #81c784;
+}
+
+.btn-success:hover {
+    background: #66bb6a;
+}
+
+.btn-secondary {
+    background: #90caf9;
+}
+
+.btn-secondary:hover {
+    background: #64b5f6;
+}
+
+/* Resultados */
+.list-group {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 20px;
+
+}
+
+.list-group-item {
+    background: white;
+    border: 2px solid #f48fb1;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 4px 4px 8px rgba(0,0,0,0.15);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+}
+
+form p {
+    font-size: 1rem;
+    margin: 0;
+    padding: 6px 0;
+    border-bottom: 1px solid #eee;
+}
+
+/* Label e select */
+label {
+    font-weight: bold;
+    margin-top: 10px;
+    color: #444;
+}
+
+select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 3rem;
+}
+
+/* Link adicionar categoria */
+form a {
+    color: #ec407a;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: -5px;
+}
+
+form a:hover {
+    text-decoration: underline;
+}
+
+/* Botão salvar */
+form button {
+    background: #f48fb1;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    cursor: pointer;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.25);
+    transition: all 0.2s ease;
+}
+
+form button:hover {
+    background: #ec407a;
+    transform: translateY(-2px);
+}
+/* Container da lista */
+.lista-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Título */
+.page-title {
+    font-size: 28px;
+    text-shadow: 2px 2px 0px #ff80ab;
+    margin-bottom: 30px;
+}
+
+/* Lista de livros */
+.livro-lista {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+/* Cada item da lista */
+.livro-item {
+    background: #fff0f6;
+    margin-bottom: 20px;
+    padding: 20px 25px;
+    border-radius: 14px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px; /* aumenta a altura mínima da caixa */
+}
+
+/* Título do livro */
+.livro-titulo {
+    font-weight: bold;
+    font-size: 20px; /* aumentei a fonte */
+    flex: 1; /* ocupa o espaço disponível */
+    text-align: left; /* mantém alinhado à esquerda */
+    margin-right: 15px; /* dá espaço pros botões */
+    word-wrap: break-word; /* quebra se for muito longo */
+}
+/* Botões */
+.acoes a {
+    margin-left: 8px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.acoes a:hover {
+    transform: scale(1.05);
+}
+
+/* Botão final (novo livro e categorias) */
+.acoes-finais {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Caso não tenha livros */
+.vazio, .sem-livros {
+    font-style: italic;
+    color: #555;
+}
+.page-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+
+.livro-item {
+    background: #fff0f6;
+    margin-bottom: 20px;
+    padding: 20px 25px;
+    border-radius: 14px;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px; /* aumenta a altura mínima da caixa */
+}
+
+/* Título do livro */
+.livro-titulo {
+    font-weight: bold;
+    font-size: 20px; /* aumentei a fonte */
+    flex: 1; /* ocupa o espaço disponível */
+    text-align: left; /* mantém alinhado à esquerda */
+    margin-right: 15px; /* dá espaço pros botões */
+    word-wrap: break-word; /* quebra se for muito longo */
+}
+.detalhes-container {
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: center;
+}
+
+.detalhes-titulo {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #e91e63;
+    text-shadow: 2px 2px rgba(0,0,0,0.1);
+}
+
+.detalhes-info p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+}
+
+.detalhes-botoes {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-voltar {
+    background: #9e9e9e;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-excluir {
+    background: #f44336;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-alterar {
+    background: #ff9800;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-voltar:hover { background: #757575; }
+.btn-excluir:hover { background: #d32f2f; }
+.btn-alterar:hover { background: #e68900; }
+
+.delete-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.delete-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #f44336;
+    text-shadow: 1px 1px rgba(0,0,0,0.1);
+}
+
+.delete-text {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.delete-form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-excluir {
+    background: #f44336;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background: #9e9e9e;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-excluir:hover { background: #d32f2f; }
+.btn-cancelar:hover { background: #757575; }
+.categoria-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.categoria-title {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #000000;
+}
+
+.categoria-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #000000;
+}
+
+.categoria-atual {
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.categoria-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.categoria-label {
+    font-weight: bold;
+}
+
+.categoria-select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 80%;
+}
+
+.categoria-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn-salvar {
+    background: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-cancelar {
+    background: #9e9e9e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-salvar:hover { background: #388e3c; }
+.btn-cancelar:hover { background: #757575; }
+
+/* --- Adicionar Categoria --- */
+.categoria-form-container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+    max-width: 500px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.categoria-form-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.categoria-form .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-categoria {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #f48fb1;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.btn-categoria {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    margin: 8px;
+}
+
+.btn-categoria.salvar {
+    background: #f48fb1;
+    color: white;
+    border: none;
+}
+
+.btn-categoria.salvar:hover {
+    background: #ec407a;
+}
+
+.btn-categoria.voltar {
+    background: #ddd;
+    color: black;
+}
+
+.btn-categoria.voltar:hover {
+    background: #bbb;
+}
+/* --- Lista de Categorias --- */
+.categoria-lista-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.categoria-titulo {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px #f8bbd0;
+}
+
+.categoria-tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 4px 4px 12px rgba(0,0,0,0.2);
+}
+
+.categoria-tabela th,
+.categoria-tabela td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.categoria-tabela th {
+    background: #f48fb1;
+    color: white;
+    font-size: 1.1rem;
+}
+
+.categoria-tabela tr:hover {
+    background: #ffe4ef;
+}
+
+.sem-categorias {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+}
+
+.btn-categoria {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.btn-categoria.adicionar {
+    background: #f48fb1;
+    color: white;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.btn-categoria.adicionar:hover {
+    background: #ec407a;
+}
+
+.btn-categoria.deletar {
+    background: #e57373;
+    color: white;
+}
+
+.btn-categoria.deletar:hover {
+    background: #c62828;
+}
+
+.btn-categoria.acessar {
+    background: #81c784;
+    color: white;
+}
+
+.btn-categoria.acessar:hover {
+    background: #388e3c;
+}
+
+.btn-categoria.editar {
+    background: #64b5f6;
+    color: white;
+}
+
+.btn-categoria.editar:hover {
+    background: #1976d2;
+}
+/* Editar Categoria */
+.editar-categoria-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.editar-categoria-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.editar-categoria-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editar-categoria-form input, 
+.editar-categoria-form select, 
+.editar-categoria-form textarea {
+    padding: 10px;
+    border: 2px solid #f48fb1;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+.editar-categoria-acoes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 15px;
+}
+/* Detalhe da Categoria */
+.categoria-detalhe-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.categoria-titulo {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #ec407a;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.categoria-subtitulo {
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.categoria-livros-lista {
+    list-style: none;
+    padding: 0;
+}
+
+.categoria-livro-item {
+    background: #ffe6f0;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+}
+
+.categoria-vazio {
+    font-style: italic;
+    color: gray;
+    margin-top: 10px;
+}
+
+.categoria-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 18px;
+    border-radius: 8px;
+}

@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Adicionar Categoria</title>
-</head>
-<body>
-    <h1>Adicionar nova categoria</h1>
+{% extends "base.html" %}
+{% block title %}Adicionar Categoria{% endblock %}
 
-    <form method="POST">
+{% block content %}
+<div class="categoria-form-container">
+    <h1 class="categoria-form-title">Adicionar nova categoria</h1>
+
+    <form method="POST" class="categoria-form">
         {% csrf_token %}
-        <label for="nome">Nome da categoria:</label>
-        <input type="text" id="nome" name="nome" required>
-        <button type="submit">Salvar</button>
+        <div class="form-group">
+            <label for="nome">Nome da categoria:</label>
+            <input type="text" id="nome" name="nome" class="input-categoria" required>
+        </div>
+        <button type="submit" class="btn-categoria salvar">Salvar</button>
     </form>
 
-    <br>
-    <a href="{% url 'livros:pesquisar' %}">Voltar para adicionar livro</a>
-</body>
-</html>
+    <a href="{% url 'livros:pesquisar' %}" class="btn-categoria voltar">Voltar para adicionar livro</a>
+</div>
+{% endblock %}

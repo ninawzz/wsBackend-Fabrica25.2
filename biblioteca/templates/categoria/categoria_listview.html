@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Categorias{% endblock %}
+
+{% block content %}
+<div class="categoria-lista-container">
+    <h1 class="categoria-titulo">Categorias</h1>
+    <a href="{% url 'livros:adicionar_categoria' %}" class="btn-categoria adicionar">+ Adicionar Categoria</a>
+
+    <table class="categoria-tabela">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Ações</th>
+                <th>Ver livros</th>
+                <th>Editar nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for categoria in categorias %}
+            <tr>
+                <td>{{ categoria.nome }}</td>
+                <td>
+                    <a href="{% url 'livros:deletar_categoria' categoria.id %}" class="btn-categoria deletar">Deletar</a>
+                </td>
+                <td>
+                    <a href="{% url 'livros:ver_categoria' categoria.id %}" class="btn-categoria acessar">Acessar</a>
+                </td>
+                <td>
+                    <a href="{% url 'livros:editar_categoria' categoria.id %}" class="btn-categoria editar">Editar</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="sem-categorias">Nenhuma categoria cadastrada.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -19,7 +19,7 @@ Permite buscar livros, adicionar à sua coleção, organizar por categorias e ge
 - [Python 3.13.7](https://www.python.org/)
 - [Django 5.2.6](https://www.djangoproject.com/)
 - HTML5, CSS3
-- SQLite 
+- SQLite
 
 ---
 
@@ -52,40 +52,53 @@ Project/
 ```bash
 git clone https://github.com/seuusuario/biblioteca-django.git
 cd biblioteca-django
-
-2. Criar ambiente virtual
+```
+### 2. Criar ambiente virtual
+```bash
 python -m venv venv
 source venv/bin/activate    # Linux / Mac
 venv\Scripts\activate       # Windows
-
-3. Instalar dependências
+```
+### 3. Instalar dependências
+```bash
 pip install -r requirements.txt
+```
 
-4. Rodar as migrações
+### 4. Rodar as migrações
+```bash
 python manage.py migrate
-
-6. Rodar servidor local
+```
+### 5. Rodar servidor local
+```bash
 python manage.py runserver
+```
+➡️ Acesse em: http://127.0.0.1:8000/
+
+## 📡 Endpoints:
+
+  📚 Livros
+| Método   | URL                               | Descrição                         |
+| -------- | --------------------------------- | --------------------------------- |
+| **GET**  | `/livros/`                        | Lista todos os livros cadastrados |
+| **GET**  | `/livros/<id>/`                   | Detalhes de um livro específico   |
+| **POST** | `/livros/adicionar/`              | Adiciona um novo livro            |
+| **POST** | `/livros/<id>/editar/`            | Edita informações de um livro     |
+| **POST** | `/livros/<id>/deletar/`           | Deleta um livro                   |
+| **POST** | `/livros/<id>/alterar-categoria/` | Alterar categoria de um livro     |
+
+# # 🏷️ Categorias
+
+| Método   | URL                         | Descrição                              |
+| -------- | --------------------------- | -------------------------------------- |
+| **GET**  | `/categorias/`              | Lista todas as categorias              |
+| **GET**  | `/categorias/<id>/`         | Lista todos os livros de uma categoria |
+| **POST** | `/categorias/adicionar/`    | Cria uma nova categoria                |
+| **POST** | `/categorias/<id>/editar/`  | Edita o nome de uma categoria          |
+| **POST** | `/categorias/<id>/deletar/` | Deleta uma categoria                   |
+
+# # 🔎 Outros
+| Método  | URL           | Descrição                                       |
+| ------- | ------------- | ----------------------------------------------- |
+| **GET** | `/pesquisar/` | Página de pesquisa de livros (por título/autor) |
 
 
-Acesse: http://127.0.0.1:8000/
-
-📡 Endpoints
-📚 Livros
-Método	URL	Descrição
-GET	/livros/	Lista todos os livros cadastrados
-GET	/livros/<id>/	Detalhes de um livro específico
-POST	/livros/adicionar/	Adiciona um novo livro
-POST	/livros/<id>/editar/	Edita informações de um livro
-POST	/livros/<id>/deletar/	Deleta um livro
-POST	/livros/<id>/alterar-categoria/	Alterar categoria de um livro
-🏷️ Categorias
-Método	URL	Descrição
-GET	/categorias/	Lista todas as categorias
-GET	/categorias/<id>/	Lista todos os livros de uma categoria
-POST	/categorias/adicionar/	Cria uma nova categoria
-POST	/categorias/<id>/editar/	Edita o nome de uma categoria
-POST	/categorias/<id>/deletar/	Deleta uma categoria
-🔎 Outros
-Método	URL	Descrição
-GET	/pesquisar/	Página de pesquisa de livros (por título/autor)

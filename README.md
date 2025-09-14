@@ -24,7 +24,7 @@ Permite buscar livros, adicionar à sua coleção, organizar por categorias e ge
 ---
 
 ## 📂 Estrutura do projeto
-
+```
 Project/
 │── biblioteca/ # App principal
 │ ├── templates/ # Templates HTML
@@ -43,33 +43,33 @@ Project/
 ├── db.sqlite3 # Banco de dados
 ├── manage.py
 └── README.md
-
+```
 ---
 
 ## ⚙️ Como rodar o projeto
 
 ### 1. Clonar o repositório
-```bash
+```
 git clone https://github.com/seuusuario/biblioteca-django.git
 cd biblioteca-django
 ```
 ### 2. Criar ambiente virtual
-```bash
+```
 python -m venv venv
 source venv/bin/activate    # Linux / Mac
 venv\Scripts\activate       # Windows
 ```
 ### 3. Instalar dependências
-```bash
+```
 pip install -r requirements.txt
 ```
 
 ### 4. Rodar as migrações
-```bash
+```
 python manage.py migrate
 ```
 ### 5. Rodar servidor local
-```bash
+```
 python manage.py runserver
 ```
 ➡️ Acesse em: http://127.0.0.1:8000/
